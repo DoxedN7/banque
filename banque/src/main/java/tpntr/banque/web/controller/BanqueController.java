@@ -8,6 +8,6 @@ import org.springframework.web.bind.annotation.RestController;
 public class BanqueController {
 	@RequestMapping(value="/Produits", method=RequestMethod.GET)
     public String listeProduits() {
-        return "Un exemple de produit";
+        return "Un exemple de produits";
     }
 }
