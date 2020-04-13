@@ -14,12 +14,12 @@ public class BanqueController {
 	@Autowired
 	private AccountDao accountDao;
 	
-	//Afficher les comptes
+    //Récupérer la liste des produits
 	@RequestMapping(value="/Comptes", method=RequestMethod.GET)
     public List<Account> accountList() {
-		return accountDao.findAll();
-	}
-	
+        return accountDao.findAll();
+    }
+
 	//Afficher un compte
 	@GetMapping(value = "/Comptes/{id}")
 	public Account displayAccount(@PathVariable int id) {
