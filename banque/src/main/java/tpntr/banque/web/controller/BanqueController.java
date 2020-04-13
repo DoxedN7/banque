@@ -22,7 +22,7 @@ public class BanqueController {
     public List<Account> accountList() {
 		return accountDao.findAll();
 	}
-	
+	/*
 	//Afficher un compte
 	@GetMapping(value = "/Comptes/{id}")
 	public Account displayAccount(@PathVariable int id) {
@@ -45,5 +45,5 @@ public class BanqueController {
                 .toUri();
 
         return ResponseEntity.created(location).build();
-    }
+    }*/
 }
