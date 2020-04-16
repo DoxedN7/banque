@@ -1,4 +1,4 @@
-package tpntr.banque;
+package tpntr.banque.model;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;

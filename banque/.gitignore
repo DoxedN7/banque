@@ -30,6 +30,10 @@ build/
 ### VS Code ###
 .vscode/
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 /bin/
 >>>>>>> refs/remotes/origin/lilian
+=======
+/bin/
+>>>>>>> refs/heads/lilian
