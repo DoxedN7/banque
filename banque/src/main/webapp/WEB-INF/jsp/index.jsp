@@ -12,7 +12,9 @@
        
      
          
-      <a href="${pageContext.request.contextPath}/accountList">Account List</a>  
+      <a href="${pageContext.request.contextPath}/accountList">Account List</a> 
+      <br/> 
+      <a href="${pageContext.request.contextPath}/Comptes">Comptes BDD</a>  
        
    </body>
    
