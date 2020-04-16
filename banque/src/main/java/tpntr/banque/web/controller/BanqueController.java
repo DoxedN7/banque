@@ -35,7 +35,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 
 @Controller
-@ResponseBody
 public class BanqueController {
 	/*
 	@Autowired
