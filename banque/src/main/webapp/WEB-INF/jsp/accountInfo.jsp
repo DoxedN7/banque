@@ -7,7 +7,7 @@
         <title>NTR BANK Infos du compte</title>
         <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/style.css"/>
     </head>
-    	<c:forEach  items="${accounts}" var ="account">
+    
 		    <body>
 		        <h1>NTR BANK</h1>
 		        <h3>Bonjour ${account.firstName} ${account.lastName}.</h3>
@@ -27,5 +27,4 @@
 		        <!-- Vérifier celui qui recevra le virement + vérifier si le virement est possible + effectuer transfert-->
 
 		</body>
-	</c:forEach>
-</html>tml>
+</html>

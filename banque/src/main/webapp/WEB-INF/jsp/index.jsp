@@ -12,8 +12,6 @@
        
      
          
-      <a href="${pageContext.request.contextPath}/accountInfo">Account Info</a> 
-      <br/> 
       <a href="${pageContext.request.contextPath}/Comptes">Comptes BDD</a>  
       <br/>
       <a href="${pageContext.request.contextPath}/accountList">Account List</a> 
