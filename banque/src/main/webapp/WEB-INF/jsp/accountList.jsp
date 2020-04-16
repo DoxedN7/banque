@@ -11,9 +11,7 @@
 		    <body>
 		        <h1>NTR BANK</h1>
 		        <h3>Bonjour ${account.firstName} ${account.lastName}.</h3>
-		        <!-- Insérer nom du client -->
 		        <h3>Votre solde est de ${account.money} euros.</h3>
-		        <!-- Insérer solde du client -->
 		        <h3>Effectuer un virement :</h3>
 		        <div class="form-example">
 		            <label for="name">Entrez le nom de la personne qui recevra le virement: </label>
@@ -28,6 +26,6 @@
 		        <input type ="button" value = "Effectuer le virement">
 		        <!-- Vérifier celui qui recevra le virement + vérifier si le virement est possible + effectuer transfert-->
 
-	</body>
-		   		</c:forEach>
+		</body>
+	</c:forEach>
 </html>

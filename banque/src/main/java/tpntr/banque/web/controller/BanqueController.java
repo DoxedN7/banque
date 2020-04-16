@@ -32,37 +32,15 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 
-
-
 @Controller
 public class BanqueController {
-	/*
-	@Autowired
-	private AccountDao accountDao = null;
-	
-    //Récupérer la liste des produits
-
-	@RequestMapping(value="/Comptes", method=RequestMethod.GET)
-    public List<Account> accountList() {
-        return accountDao.findAll();
-    }
-	
-    @GetMapping(value="/Comptes/{id}")
-    public Optional<Account> afficherUnCompte(@PathVariable int id) {
-    	
-        Object account = null;
-		if(account==null) throw new CompteIntrouvableException(id);
-        return accountDao.findById(id);
-    }
-    */
-	
-
     private static List<Account> accounts = new ArrayList<Account>();
     
     static {
         accounts.add(new Account(4, "Younes", "Djelmoudi", 999999));
     }
  
+    @RequestMapping(value = { "/", "/index" }, method = RequestMethod.GET)
     public String index(Model model) {
  
         String message = "Hello Spring Boot + JSP";
@@ -79,6 +57,5 @@ public class BanqueController {
  
         return "accountList";
     }	
-	
 	
 }
