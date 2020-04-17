@@ -26,6 +26,10 @@ public class Account {
     	this.lastName = lastName;
     	this.money = money;
     }
+<<<<<<< HEAD
+=======
+   
+>>>>>>> refs/remotes/origin/lilian
     
     //Getters & Setters
     public int getId() {
