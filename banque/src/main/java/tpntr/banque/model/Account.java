@@ -3,7 +3,6 @@ package tpntr.banque.model;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.xml.bind.annotation.XmlRootElement;
 
 @Entity
 public class Account {
@@ -66,9 +65,18 @@ public class Account {
 		this.firstName = firstName;
 	}
 	
+	public void virement(int amount) {
+		System.out.println("ça se passe chez "+this.lastName);
+		this.money+=amount;
+	}
+	
+	public void prelevement(int amount) {
+		this.money-=amount;
+	}
+
 	@Override
 	public String toString() {
-		// TODO Auto-generated method stub
-		return super.toString();
+		return "Account [id=" + id + ", firstName=" + firstName + ", lastName=" + lastName + ", money=" + money + "]";
 	}
+	
 }

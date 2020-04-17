@@ -16,6 +16,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -85,21 +87,23 @@ public class BanqueController {
         return "accountList";
     }	
     
-        
-    /*
-    public Account virement(int id_send, int id_receive, int amount) {
-    	
-    	//Récupérer comptes dans la liste ; effectuer les modifications si possible ; retourner la liste
-    	
-    	Account account_send = getAccountWithId(id_send);
-		Account account_receive = getAccountWithId(id_receive);
-    	
-		if ((account_send.getMoney() - amount) <= 0) throw new SoldeInsuffisantException("Le solde du compte avec l'id " + id_send + " est insuffisant.");
-		
-    	if(account_receive == null) throw new CompteIntrouvableException("Le compte avec l'id " + id_receive + " n'existe pas.");
-		
-		
-		return account_receive;
+    @PostMapping(value="/accountList")
+    public void doOperation(@RequestBody Operation operation, Model model) {
+    	if(operation.getOperationType().equals("Virement")) {
+    		accountDao.findById(operation.getIdCompte())
+    					.get().virement(operation.getAmount());
+    		
+    	}   	
+    	else if(operation.getOperationType().equals("Prélèvement")){
+    		if(accountDao.findById(operation.getIdCompte()).get().getMoney()-operation.getAmount() > 0) {
+	    		accountDao.findById(operation.getIdCompte())
+	    					.get().prelevement(operation.getAmount());
+    		}
+    		else throw new SoldeInsuffisantException("Solde insuffisant");
+    	}
+    	else throw new CompteIntrouvableException("Le compte avec l'id " + operation.getIdCompte() + " n'existe pas.");
+    	accountDao.flush();
     }
-	*/
+    
+        
 }
