@@ -28,7 +28,7 @@ public class BankRestController {
     }
 	
     @GetMapping(value="/Comptes/{id}")
-    public Optional<Account> afficherUnCompte(@PathVariable int id) {
+    public Optional<Account> displayAccount(@PathVariable int id) {
     	
         Optional<Account> account = accountDao.findById(id);
 

@@ -28,7 +28,7 @@ public class BankController {
 	
     public List<Account> accounts = new ArrayList<Account>();
 	
-    public List<Account> recupererbdd (List<Account>accounts){
+    public List<Account> getDataBase(List<Account>accounts){
     	accounts.clear();
     	int i = 1;
     	do {
@@ -78,7 +78,7 @@ public class BankController {
     @RequestMapping(value = { "/accountList" }, method = RequestMethod.GET)
     public String viewAccountList(Model model) {
     	
-    	accounts=recupererbdd(accounts);
+    	accounts=getDataBase(accounts);
     	
         model.addAttribute("accounts", accounts);
  
