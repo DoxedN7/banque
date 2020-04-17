@@ -44,7 +44,7 @@ public class BankController {
     @RequestMapping(value = { "/", "/index" }, method = RequestMethod.GET)
     public String index(Model model) {
     	
-        String message = "Hello Spring Boot + JSP";
+        String message = "Bienvenue sur la banque NTR";
 
     	//On enregistre le message dans le modèle
         model.addAttribute("message", message);
