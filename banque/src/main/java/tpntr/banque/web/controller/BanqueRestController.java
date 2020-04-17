@@ -33,7 +33,6 @@ public class BanqueRestController {
     @GetMapping(value="/Comptes/{id}")
     public Optional<Account> afficherUnCompte(@PathVariable int id) {
     	
-
         Optional<Account> account = accountDao.findById(id);
 
         if(!account.isPresent()) throw new CompteIntrouvableException("Le compte avec l'id " + id + " n'existe pas.");

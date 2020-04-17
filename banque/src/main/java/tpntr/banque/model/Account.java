@@ -6,7 +6,6 @@ import javax.persistence.Id;
 import javax.xml.bind.annotation.XmlRootElement;
 
 @Entity
-@XmlRootElement
 public class Account {
 	
 	@Id
@@ -18,6 +17,13 @@ public class Account {
     private double money;        //Montant présent sur le compte
     
     public Account() {
+    }
+    
+    public Account(Account account) {
+    	this.id = account.getId();
+    	this.firstName = account.getFirstName();
+    	this.lastName = account.getLastName();
+    	this.money = account.getMoney();
     }
     
     public Account(int id, String firstName, String lastName, double money) {

@@ -9,6 +9,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -29,7 +31,6 @@ public class BanqueController {
     @RequestMapping(value = { "/", "/index" }, method = RequestMethod.GET)
     public String index(Model model) {
  
-    	
         String message = "Hello Spring Boot + JSP";
 
     	//On enregistre le message dans le modèle
@@ -53,6 +54,7 @@ public class BanqueController {
     	for(int i = 0; i<accounts.size();i++) {
     		if(accounts.get(i).getId() == id) {
     			accountToReturn = accounts.get(i);
+    			
     		}
     	}
     	return accountToReturn;
@@ -65,5 +67,10 @@ public class BanqueController {
  
         return "accountList";
     }	
+    
+    @PostMapping(value= {"/accountList"})
+    public void doOperation(@RequestBody Operation operation) {
+    	
+    }
 	
 }
