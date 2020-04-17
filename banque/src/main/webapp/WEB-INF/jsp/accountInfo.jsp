@@ -14,7 +14,7 @@
 		        <h3>Votre solde est de ${account.money} euros.</h3>
 		        <h3>Effectuer un virement :</h3>
 		        <div class="form-example">
-		            <label for="name">Entrez le nom de la personne qui recevra le virement: </label>
+		            <label for="id">Entrez l'id de la personne qui recevra le virement: </label>
 		            <input type="text" name="name" id="name" required>
 		        </div>
 		        <br/>
@@ -23,8 +23,7 @@
 		            <input type="number" name="somme" id="somme" required>
 		        </div>
 		        <br/>
-		        <input type ="button" value = "Effectuer le virement">
-		        <!-- Vérifier celui qui recevra le virement + vérifier si le virement est possible + effectuer transfert-->
-
+		        <input type ="submit" value = "Effectuer le virement">
+		        
 		</body>
 </html>
