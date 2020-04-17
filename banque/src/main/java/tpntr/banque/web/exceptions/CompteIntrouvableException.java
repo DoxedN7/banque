@@ -6,7 +6,12 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 @ResponseStatus(HttpStatus.NOT_FOUND)
 public class CompteIntrouvableException extends RuntimeException {
 	
-    public CompteIntrouvableException(String S) {
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = -181859208066774494L;
+
+	public CompteIntrouvableException(String S) {
         super(S);
         
     }
