@@ -1,14 +1,14 @@
 package tpntr.banque.web.exceptions;
 
 
-public class SoldeInsuffisantException extends RuntimeException {
+public class NotEnoughMoneyException extends RuntimeException {
 	
     /**
 	 * 
 	 */
 	private static final long serialVersionUID = -4550889849872780554L;
 
-	public SoldeInsuffisantException(String S) {
+	public NotEnoughMoneyException(String S) {
         super(S);
         
     }

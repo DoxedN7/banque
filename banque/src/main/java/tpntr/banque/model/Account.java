@@ -65,12 +65,11 @@ public class Account {
 		this.firstName = firstName;
 	}
 	
-	public void virement(int amount) {
-		System.out.println("ça se passe chez "+this.lastName);
+	public void addMoney(int amount) {
 		this.money+=amount;
 	}
 	
-	public void prelevement(int amount) {
+	public void substractMoney(int amount) {
 		this.money-=amount;
 	}
 

@@ -4,14 +4,14 @@ import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ResponseStatus;
 
 @ResponseStatus(HttpStatus.NOT_FOUND)
-public class CompteIntrouvableException extends RuntimeException {
+public class CannotFoundTheAccountWereAskingForException extends RuntimeException {
 	
     /**
 	 * 
 	 */
 	private static final long serialVersionUID = -181859208066774494L;
 
-	public CompteIntrouvableException(String S) {
+	public CannotFoundTheAccountWereAskingForException(String S) {
         super(S);
         
     }

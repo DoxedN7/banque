@@ -12,10 +12,10 @@ import org.springframework.web.bind.annotation.RestController;
 
 import tpntr.banque.dao.AccountDao;
 import tpntr.banque.model.*;
-import tpntr.banque.web.exceptions.CompteIntrouvableException;
+import tpntr.banque.web.exceptions.CannotFoundTheAccountWereAskingForException;
 
 @RestController
-public class BanqueRestController {
+public class BankRestController {
 	@Autowired
 	private AccountDao accountDao = null;
 	
@@ -31,7 +31,7 @@ public class BanqueRestController {
     	
         Optional<Account> account = accountDao.findById(id);
 
-        if(!account.isPresent()) throw new CompteIntrouvableException("Le compte avec l'id " + id + " n'existe pas.");
+        if(!account.isPresent()) throw new CannotFoundTheAccountWereAskingForException("Le compte avec l'id " + id + " n'existe pas.");
 
         return account;
         

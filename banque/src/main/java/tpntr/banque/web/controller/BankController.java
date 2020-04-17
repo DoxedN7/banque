@@ -3,8 +3,8 @@ package tpntr.banque.web.controller;
 import java.util.List;
 //import tpntr.banque.Accounts;
 import tpntr.banque.model.*;
-import tpntr.banque.web.exceptions.CompteIntrouvableException;
-import tpntr.banque.web.exceptions.SoldeInsuffisantException;
+import tpntr.banque.web.exceptions.CannotFoundTheAccountWereAskingForException;
+import tpntr.banque.web.exceptions.NotEnoughMoneyException;
 import tpntr.banque.dao.AccountDao;
 
 import java.util.ArrayList;
@@ -21,7 +21,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 
 @Controller
-public class BanqueController {
+public class BankController {
 	
 	@Autowired
 	private AccountDao accountDao = null;
@@ -60,7 +60,7 @@ public class BanqueController {
     	if(accountToDisplay != null) {
     		model.addAttribute("account",accountToDisplay);
     	}
-    	else throw new CompteIntrouvableException("Le compte avec l'id " + id + " n'existe pas.");
+    	else throw new CannotFoundTheAccountWereAskingForException("Le compte avec l'id " + id + " n'existe pas.");
     	
         return "accountInfo";
     }	
@@ -89,17 +89,17 @@ public class BanqueController {
     public void doOperation(@RequestBody Operation operation, Model model) {
     	if(operation.getOperationType().equals("Virement")) {
     		accountDao.findById(operation.getIdCompte())
-    					.get().virement(operation.getAmount());
+    					.get().addMoney(operation.getAmount());
     		
     	}   	
     	else if(operation.getOperationType().equals("Prélèvement")){
     		if(accountDao.findById(operation.getIdCompte()).get().getMoney()-operation.getAmount() > 0) {
 	    		accountDao.findById(operation.getIdCompte())
-	    					.get().prelevement(operation.getAmount());
+	    					.get().substractMoney(operation.getAmount());
     		}
-    		else throw new SoldeInsuffisantException("Solde insuffisant");
+    		else throw new NotEnoughMoneyException("Solde insuffisant");
     	}
-    	else throw new CompteIntrouvableException("Le compte avec l'id " + operation.getIdCompte() + " n'existe pas.");
+    	else throw new CannotFoundTheAccountWereAskingForException("Le compte avec l'id " + operation.getIdCompte() + " n'existe pas.");
     	accountDao.flush();
     }
     
